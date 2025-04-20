@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <form acion='' method='POST' class='col-md-4' novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-outline-success" type="submit" value="Login">
+        <a href='{% url 'account:password_reset' %}' class="btn btn-outline-dark">Forgot Password?</a>    
+    </form>
+{% endblock content %}
+

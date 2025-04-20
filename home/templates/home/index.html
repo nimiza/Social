@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <form action='' method='GET' class='col-md-3' novalidate>
+        {{ form.as_p }}
+        <input class="btn btn-outline-primary" type='submit' value='Search'>
+    </form>
+    <br/>
+    <div class='card'>
+        {% for pst in posts %}
+            <a href='{{ pst.get_absolute_url }}' class='card-body'>
+                <h5 class='card-title'>{{ pst.body|truncatewords:8 }}</h5>
+                <small>{{ pst.user.username }}</small>
+            </a>
+            
+        {% endfor %}
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
+{% endblock content %}
